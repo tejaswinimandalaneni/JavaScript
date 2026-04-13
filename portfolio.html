@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family:'poppins',sans-serif;
+}
+body
+{
+    color:#ededed;
+    background-color: #081b29;
+}
+.header
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height:70px;
+    padding: 20px 10%;
+    background: #051129;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+.logo{
+    position: relative;
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: default;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+
+   
+}
+.logo i {
+    margin-left: 8px;
+ 
+  }
+  
+.navbar a{
+    display: inline-block;
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left:30px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+
+}
+.navbar a:hover{
+    color:#0ef;
+
+}
+.home{
+    position:relative;
+    width: 100%;
+    justify-content: space-between;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 70px 10% 0;
+}
+.home-content{
+    max-width:600px;
+}
+
+.home-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+   
+}
+.home-content h3:nth-of-type(2){
+    margin-bottom: 30px;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .7s;
+
+    }
+    .home-content h3 span{
+        color: #0ef;
+    }  
+.home-content h1{
+    font-size:56px ;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+   animation-delay: 1s;
+
+}
+.home-content p{
+    font-size: 20px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+
+
+    
+}
+.home-sci a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid#0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    text-decoration: none;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    margin: 30px 15px 30px 0;
+}
+.home-sci a:hover{
+    background-color: #0ef;
+    color: #081b29;
+    box-shadow: 0 0 20px #0ef;
+
+}
+.btn-box{
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0ef;
+    border-radius: 40px;
+    font-size:16px ;
+    color:#081b29;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef,0 0 25px #0ef;
+}
+.btn-box:hover{
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan,0 0 50px cyan,
+    0 0 100px cyan,0 0 200px cyan
+}
+
+
+
+
+/*About me*/
+.about{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+   align-items: center;
+    gap:1.5rem;
+   
+}
+    
+ .about-img{
+    flex: 1;
+}
+
+.about-img img{
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+     margin-left: 100px;
+     border: 4px solid #0ef;
+}
+.about-text h2{
+    font-size:60px;
+}
+.about-text h2 span{
+    color: #0ef;
+
+}
+.about-text h5{
+    font-size: 29px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.7;
+    margin: 15px 0 30px;
+}
+.about-text p{
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+    text-align: justify;
+    padding-right: 30px;
+}
+
+/*My services*/
+.sub-title{
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 70px;
+}
+.sub-title span{
+    color: #0ef;
+}
+#services{
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+
+}
+.container{
+    padding:90px;
+
+}
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
+    grid-gap:40px;
+    margin-top: 50px;
+}
+.services-list div{
+    background-color: transparent;
+    padding: 40px;
+    font-size: 13px;
+    font-weight:500;
+    border-right: 10px;
+    border-radius: 20px;
+    transition: background 0.5s,transform 0.5s;
+    box-shadow: 1px 1px 20px #012290f7,1px 1px 40px #0053b8f7;
+    
+
+}
+.services-list div i {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.services-list div h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.services-list div a{
+    text-decoration: none;
+    color:#000000;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.read{
+    display: inline-block;
+    padding: 12px 28px;
+    background:#0ef;
+    border-radius: 40px;
+    font-size: 16px;
+    color:#081b29;
+    letter-spacing: 1px;
+    text-decoration:none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef,0 0 25px #0ef;
+}
+
+.read:hover{
+        box-shadow: 0 0 5px cyan,
+        0 0 25px cyan,0 0 50px cyan,
+        0 0 100px cyan,0 0 200px cyan;
+
+}
+.services-list div:hover{
+    transform: translateY(-10px);
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@keyframes slideRight{
+    0%{
+        transform:translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft{
+    0%{
+        transform:translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideTop {
+    0%{
+        transform:translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideBottom {
+    0%{
+        transform:translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/*Technical skills*/
+#port span {
+    color: #0ef;
+}
+
+#Teja {
+    padding-top: 40px;
+    padding-bottom: 0px;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 50px;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 550px;
+}
+
+.skill {
+    flex: 1 1 300px;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    align-items: center;
+}
+
+.skill h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: aliceblue;
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.skill i {
+    font-size: 30px;
+    display: flex;
+    padding-top: 0px;
+}
+
+.skill p {
+  font-weight: bold;
+}
+
+.progress-bar {
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+    height:10px;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+.progress {
+    height: 100%;
+    background: #0ef;
+    width: 0;
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+
+/*pro skills*/
+
+h4{
+
+    padding-top:50px;
+    padding-bottom: 0px;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-thickness:5px;
+    text-underline-offset: 10px;
+    padding-bottom:10px;
+    text-align: center;
+}
+
+  .skills-container,
+#professional-skills {
+    padding: 60px 20px;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+  .pro-skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:45px;
+    margin-top: 0px;
+    
+  }
+  
+  .circle-skill {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    text-align: center;
+  }
+  
+  .circle-skill svg {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+  }
+  
+  .circle-skill circle {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+  }
+  
+  .circle-skill circle:first-child {
+    stroke:black;
+  }
+  
+  
+  .circle-skill circle:last-child {
+    stroke:#0ef;
+    stroke-dasharray: 314; /* 2πr = 2*3.14*50 */
+    stroke-dashoffset: 314;
+    animation: fill-circle 2s forwards;
+    stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100);
+  }
+  
+  .circle-skill h3 {
+    margin-top: 10px;
+    font-size: 1rem;
+    color:white;
+  }
+  
+  .circle-skill p {
+    margin-top: 5px;
+    font-weight: bold;
+    color:whitesmoke;
+  }
+  
+  @keyframes fill-circle {
+    to {
+      stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100);
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .skills-container,
+    .container1,
+    #professional-skills {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .about {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .contact {
+      grid-template-columns: 1fr;
+    }
+  }
+/* Projects Section */
+.projects{
+    padding: 100px 10%;
+}
+
+.projects h2{
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.projects h2 span{
+    color: #0ef;
+}
+
+/* make side-by-side */
+.projects{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* two side by side */
+    gap: 25px;
+}
+
+/* keep heading full width */
+.projects h2{
+    grid-column: 1 / -1;
+}
+
+.project-box{
+    background: transparent;
+    padding: 30px;
+    border-radius: 20px;
+    transition: .5s ease;
+    box-shadow: 1px 1px 20px #012290f7, 
+                1px 1px 40px #0053b8f7;
+}
+
+.project-box:hover{
+    transform: translateY(-10px);
+}
+
+.project-box h3{
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.project-box p{
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.project-box a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0ef;
+    color: #081b29;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+}
+  /* Contact Section */
+.contact{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
+    padding-left: 30px;
+    margin-left: 30px;
+    margin-top: 130px;
+}
+.contact-text h2{
+    font-size: 60px;
+    line-height: 1;
+    text-align: center;
+}
+.contact-text h2 span{
+    color: #0ef;
+}
+.contact-text h6{
+    margin: 15px 0;
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-text p{
+    color: rgb(177,177,177);
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 2rem;
+}
+.contact-list{
+    margin-bottom: 3rem;
+}
+.contact-list li{
+    margin-bottom: 10px;
+    display: block;
+}
+.contact-list li{
+    margin-bottom: 10px;
+    display: block;
+}
+.contact-list i{
+    display: inline-block;
+    color: #0ef;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all .40s ease;
+
+}
+.contact-list li a:hover{
+    transform: scale(1.01) translateY(-5px);
+    color: #0ef;
+}
+.contact-icons i {
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.contact-icons i:hover {
+    background: #0ef;
+    color: #000;
+    box-shadow: 0 0 20px #0ef;
+}
+
+.contact-form form{
+    position: relative;
+}
+.contact-form form input,
+.contact-form textarea{
+    border: none;
+    outline: none;
+    width: 90%;
+    padding:15px;
+    background:#555557;
+    color:aliceblue;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+}
+.contact-form textarea{
+    resize: none;
+    height: 200px;
+}
+.contact-form form .send{
+    display: inline-block;
+    padding: 12px 30px;
+    background:#0ef;
+    border-radius: 40px;
+    font-size: 18px;
+    color:#081b29;
+    letter-spacing: 1px;
+    text-decoration:none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef,0 0 25px #0ef;
+}
+
+.contact-form form .send:hover{
+        box-shadow: 0 0 5px cyan,
+        0 0 25px cyan,0 0 50px cyan,
+        0 0 100px cyan,0 0 200px cyan;
+}
+.last-text p{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: rgb(7,85,91);
+    font-weight: 300;
+    margin-top: 70px;
+}
+.top{
+    position: fixed;
+    bottom: 2.1rem;
+    right: 2.1rem;
+}
+.top i{
+    color: #000000;
+    background: #0ef;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+
+</style>
+   
+</head>
+<body>
+<header class="header">
+  <a href="#" class="logo">My Portfolio<i class="fa-solid fa-user-tie" aria-hidden="true"></i></a>
+
+  <nav class="navbar">
+    <a href="#home" style="--i:1;">Home <i class="fa-solid fa-house"></i></a>
+    <a href="#about" style="--i:2;">About <i class="fa-solid fa-address-book" aria-hidden="true"></i></a>
+    <a href="#skills" style="--i:3;">Skills <i class="fa-solid fa-list-check" aria-hidden="true"></i></a>
+    <a href="#projects" style="--i:4;">Projects <i class="fa-solid fa-briefcase"></i></a>
+    <a href="#contact" style="--i:5;">Contact <i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </nav>
+</header>
+
+
+
+<section class="home">
+    <div class="home-content">
+        <h3>Hello,It's Me</h3>
+        <h1>Mandalaneni Tejaswini</h1>
+        <h3>And I'm a <span class=" text"></span></h3>
+        <p>I’m a Full Stack Developer who builds modern web applications with both frontend and backend technologies.
+           I create responsive <br>designs and develop functional, user-friendly websites.
+        </p>
+        <div class="home-sci">
+            <a href="https://github.com/tejaswinimandalaneni "style="--i:7" class="active"><i class='bx bxl-github'></i></a>
+            <a href="https://www.instagram.com/tejaswinimandalaneni_55?igsh=cDVvOXVnajZpZGZk"style="--i:8" class="active"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://wa.me/917842169562"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://www.linkedin.com/in/tejaswini-mandalaneni-3414622bb"><i class='bx bxl-linkedin'></i></a>
+        </div>
+        <a href="https://drive.google.com/file/d/1XyZWQPWUgQBJQ5jgRRm_26X_hGFbI4kT/view?usp=drivesdk"class="btn-box">My Resume</a>
+    </div>
+<span class="home-imgHover"></span>
+</section>
+<section class="about"id="about">
+    <div class="about-img">
+        <img src="./WhatsApp Image 2025-04-05 at 7.01.27 PM.jpeg">
+    </div>
+    <div class="about-text">
+    <h2>About<span>Me</span></h2>
+    <h5>Full stack Developer!</h5>
+    <p>I’m a Full Stack Developer with knowledge of both frontend and backend technologies.
+I design and develop responsive, user-friendly web applications.
+I work with HTML, CSS, and JavaScript to create clean and modern interfaces.
+For backend development, I use Java to build application logic.
+I also use SQL for database management and data handling.
+I focus on creating efficient, scalable, and maintainable solutions.
+I enjoy building complete projects from concept to deployment.
+I continuously learn new tools and technologies to improve my skills.
+I’m passionate about creating websites that offer a smooth user experience.
+I aim to deliver high-quality applications with clean and organized code.</p>
+
+</div>
+</section>
+
+    
+<div class="skills-section">
+<!--Technical skills-->
+<h2 id="port">My <span>Skills</span></h2>
+<p id="Teja">Technical Skills</p>
+<section id="skills">
+  
+    <div class="skills-container">
+      <div class="skill">
+        <i style="color:#c95d2e" class='bx bxl-html5'></i>
+        <h3>HTML</h3>
+        <p id="first">90%</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 90%;"></div>
+      </div>
+      </div>
+  
+      <div class="skill">
+        <i style="color:#147bbc"class='bx bxl-css3' ></i>
+        <h3>Css</h3>
+        <p id="second">85%</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 85%;"></div>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <i style="color:#b0bc1e"class='bx bxl-javascript' ></i>
+        <h3>JavaScript</h3>
+        <p id="Third">70%</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 70%;"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <i style="color:#b0bc1e"class='bx bxl-javascript' ></i>
+        <h3>Sql</h3>
+        <p id="Third">70%</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 70%;"></div>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <i style="color:darkmagenta"class='bx bxl-python' ></i>
+        <h3>Python</h3>
+      <p id="fourth">85%</p>
+      <div class="progress-bar">
+          <div class="progress" style="width: 85%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!--professional skills-->
+  <h4>Professional Skills</h4>
+
+  <section id="professional-skills">
+  <div class="pro-skills-container">
+      <div class="circle-skill">
+        <svg>
+          <circle cx="60" cy="60" r="50"></circle>
+          <circle cx="60" cy="60" r="50" style="--percent: 90;"></circle>
+        </svg>
+        <h3>Communication</h3>
+        <p>90%</p>
+      </div>
+  
+      <div class="circle-skill">
+        <svg>
+          <circle cx="60" cy="60" r="50"></circle>
+          <circle cx="60" cy="60" r="50" style="--percent: 85;"></circle>
+        </svg>
+        <h3>Teamwork</h3>
+        <p>85%</p>
+      </div>
+  
+      <div class="circle-skill">
+        <svg>
+          <circle cx="60" cy="60" r="50"></circle>
+          <circle cx="60" cy="60" r="50" style="--percent: 75;"></circle>
+        </svg>
+        <h3>Problem solving</h3>
+        <p>75%</p>
+      </div>
+
+
+      <div class="circle-skill">
+        <svg>
+          <circle cx="60" cy="60" r="50"></circle>
+          <circle cx="60" cy="60" r="50" style="--percent: 85;"></circle>
+        </svg>
+        <h3>Creativity</h3>
+        <p>85%</p>
+      </div>
+    </div>
+  </section>
+
+<section class="projects" id="projects">
+  <h2>My <span>Projects</span></h2>
+
+  <div class="project-box">
+    <h3>Login Page</h3>
+    <p>Responsive login form with validation.</p>
+    <a href="https://tejaswinimandalaneni.github.io/JavaScript/login.html">View Project</a>
+  </div>
+
+  <div class="project-box">
+    <h3>StudentRegistration</h3>
+    <p>Created a responsive student registration form using HTML, CSS, and JavaScript with validation.</p>
+    <a href="https://tejaswinimandalaneni.github.io/JavaScript/StudentRegistration.html">View Project</a>
+  </div>
+
+  <div class="project-box">
+    <h3>Calculator</h3>
+    <p>Created a calculator web app with basic arithmetic operations and responsive colorful UI.</p>
+    <a href="https://tejaswinimandalaneni.github.io/JavaScript/calculator.html">View Project</a>
+  </div>
+
+    <div class="project-box">
+    <h3>To-Do-List-Application</h3>
+    <p>Developed a To-Do List application using HTML, CSS, and JavaScript that allows users to add, delete, and mark tasks as completed with local storage support.</p>
+    <a href="https://tejaswinimandalaneni.github.io/JavaScript/to-do-list.html">View Project</a>
+  </div>
+
+</section>
+  <section class="contact" id="contact">
+    <div class="contact-text">
+      <h2>Contact <span>Me</span></h2>
+      <h6>Let's work together</h6>
+      <p>Let's connect and discuss how we can bring your ideas to life. Drop me a message — I'd love to hear from you!</p>
+      <div class="contact-list">
+        <li><i class='bx bxs-send'></i>tejaswinimandalaneni255@gmail.com</li>
+        <li><i class='bx bx-phone'></i> +91 7842169562</li>
+      </div>
+  
+      <div class="contact-icons">
+            <a href="https://www.instagram.com/tejaswinimandalaneni_55?igsh=cDVvOXVnajZpZGZk"style="--i:8" class="active"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://wa.me/917842169562"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://www.linkedin.com/in/tejaswini-mandalaneni-3414622bb"><i class='bx bxl-linkedin'></i></a>
+      </div>
+    </div>
+  
+    <div class="contact-form">
+      <form action="">
+        <input type="text" placeholder="Enter Your Name" required >
+        <input type="email" placeholder="Enter Your Email" required>
+        <input type="text" placeholder="Enter Your Subject">
+        <textarea placeholder="Enter Your Message" cols="40" rows="10" required></textarea>
+        <input type="submit" value="Submit" class="send">
+      </form>
+    </div>
+  </section>
+  
+  <div class="last-text">
+    <p>Developed by Tejaswini @ 2023</p>
+  </div>
+  
+  <a href="#" class="top"><i class='bx bx-up-arrow-alt'></i></a>
+  
+  <script>
+  var typed=new Typed(".text", {
+    strings:["Full Stack Developer"],
+    typeSpeed:100,
+    backSpeed:100,
+    backDelay:1000,
+    loop:true
+});
+</script>
+
+</body>
+</html>
